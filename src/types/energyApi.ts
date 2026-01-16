@@ -7,5 +7,5 @@ export type EnergyMixDaily = {
 export type ChargingWindowResults = {
     from: string,
     to: string,
-    cleanCleanEnergyPerc: number,
+    cleanEnergyPercentage: number,
 }
