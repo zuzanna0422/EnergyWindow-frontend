@@ -3,17 +3,17 @@ import type { EnergyMixDaily } from "../types/energyApi";
 import { useState, useEffect } from 'react'
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from 'recharts'
 
-const COLORS = [
-    '#22c55e', // green
-    '#38bdf8', // sky
-    '#f59e0b', // amber
-    '#a855f7', // purple
-    '#ef4444', // red
-    '#14b8a6',
-    '#eab308',
-    '#84cc16',
-    '#f97316',
-]
+const COLORS: Record<string, string> = {
+    coal: "#f59e0b",
+    gas: "#d97706",
+    biomass: "#40bd81",
+    nuclear: "#1fc475",
+    hydro: "#2ebf79",
+    imports: "#de8014",
+    other: "#b45309",
+    wind: "#269e64",
+    solar: "#2f9162",
+}
 
 function formatDate(dateIso: string) {
     const d = new Date(dateIso);
@@ -49,7 +49,7 @@ export default function EnergyMixPanel() {
     }
 
     return (
-        <div className="rounded-2xl border-zinc-800 bg-zinc-850 p-6 text-lg font-bold text-center">
+        <div className="rounded-2xl bg-zinc-850 p-6 text-lg font-bold text-center">
             <div className="mt-4 grid gap-6 md:grid-cols-3 text-center">
                 {data.map((day, idx) => {
                 const chartData = mapFuelToChart(day.fuel);
@@ -67,8 +67,8 @@ export default function EnergyMixPanel() {
                                             nameKey="name"
                                             outerRadius={80}
                                         >
-                                            {chartData.map((_, i) => (
-                                                <Cell key={i} fill={COLORS[i % VideoColorSpace.length]} />
+                                            {chartData.map((entry) => (
+                                                <Cell key={entry.name} fill={COLORS[entry.name]} />
                                             ))}
                                         </Pie>
                                         <Tooltip formatter={(value) => value !== undefined ? `${Math.round(Number(value))}%` : ''}/>
