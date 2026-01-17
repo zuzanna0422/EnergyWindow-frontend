@@ -1,5 +1,6 @@
 import { useState } from "react";
 import EnergyWindowPlanner from "../components/EnergyWindowPlanner";
+import EnergyMixPanel from "../components/EnergyMixPanel";
 
 export default function Dashboard() 
 {
@@ -31,7 +32,7 @@ export default function Dashboard()
                     </div>
                 </header>
                 <section className="rounded-xl border-zinc-800 bg-zinc-850 p-6 text-zinc-400">
-                    {activeTab === "mix" && (<p>Chart Section</p>)}
+                    {activeTab === "mix" && (<EnergyMixPanel />)}
                     {activeTab === "plan" && <EnergyWindowPlanner />}
                 </section>
             </div>
