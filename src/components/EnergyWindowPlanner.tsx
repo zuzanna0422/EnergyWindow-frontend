@@ -3,7 +3,7 @@ import { fetchOptimalChargingWindow } from "../api/energyApi";
 import type { ChargingWindowResults } from "../types/energyApi";
 
 export default function EnergyWindowPlanner() {
-    const [hours, setHours] = useState(1);
+    const [hours, setHours] = useState("1");
     const [result, setResult] = useState<ChargingWindowResults | null>(null);
 
     function formatDate(iso?: string)
@@ -32,7 +32,7 @@ export default function EnergyWindowPlanner() {
     }
 
     const handleCalculate = async () => {
-        const data = await fetchOptimalChargingWindow(hours);
+        const data = await fetchOptimalChargingWindow(Number(hours));
         setResult(data);
     }
 
@@ -48,11 +48,18 @@ export default function EnergyWindowPlanner() {
                         Enter hours
                         <input
                             type="number"
-                            min={1}
-                            max={6}
+                            min="1"
+                            max="6"
+                            value={hours}
                             placeholder="Enter 1-6 hours..."
                             className="mt-2 w-full rounded-lg border-zinc-700 bg-zinc-800 px-3 py-2 text-zinc-100"
-                            onChange={(e) => setHours(Number(e.currentTarget.value))}
+                            onChange={(e) => setHours(e.currentTarget.value)}
+                            onBlur={(e) => {
+                                const next = Number(e.currentTarget.value);
+                                if (Number.isNaN(next) || next < 1 || next > 6) {
+                                    setHours("6");
+                                }
+                            }}
                         />
                     </label>
                     <button
