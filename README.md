@@ -1,73 +1,30 @@
-# React + TypeScript + Vite
+# EnergyWindow – Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+EnergyWindow Frontend is a React + TypeScript + Vite dashboard application that visualizes energy generation data and displays the optimal charging window calculated by the backend. The frontend focuses on:
 
-Currently, two official plugins are available:
+* Clean, dark-themed UI
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* Interactive data visualization
 
-## React Compiler
+* Seamless API integration
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* User-friendly energy insights
 
-## Expanding the ESLint configuration
+## 🎯 Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+* Dark mode dashboard UI
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+* Energy mix pie charts (Recharts)
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+* Charging window input form (1–6 hours)
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+* Real-time backend API integration
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+* Type-safe DTO mapping (TypeScript)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+* Loading and error handling states
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+* **Backend Repository:** [https://github.com/zuzanna0422/energywindow-backend](https://github.com/zuzanna0422/energywindow-backend)
+* **Live Application:** [https://energywindow-frontend.onrender.com/](https://energywindow-frontend.onrender.com/)
+* **Carbon Intensity API (UK):** [https://carbon-intensity.github.io](https://carbon-intensity.github.io)
