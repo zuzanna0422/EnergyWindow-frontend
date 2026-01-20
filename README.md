@@ -27,4 +27,4 @@ EnergyWindow Frontend is a React + TypeScript + Vite dashboard application that 
 ---
 * **Backend Repository:** [https://github.com/zuzanna0422/energywindow-backend](https://github.com/zuzanna0422/energywindow-backend)
 * **Live Application:** [https://energywindow-frontend.onrender.com/](https://energywindow-frontend.onrender.com/)
-* **Carbon Intensity API (UK):** [https://carbon-intensity.github.io](https://carbon-intensity.github.io)
+* **Carbon Intensity API (UK):** [https://carbon-intensity.github.io](https://carbon-intensity.github.io/api-definitions/?shell#get-generation-from-to)
